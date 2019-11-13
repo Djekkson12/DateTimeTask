@@ -1,12 +1,22 @@
 package main.java;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+
+import java.time.*;
 
 public class FlightDuration {
 
+
+    public static String formatDuration(Duration duration) {
+        long seconds = duration.getSeconds();
+        long absSeconds = Math.abs(seconds);
+        String positive = String.format(
+                "%d:%02d:%02d",
+                absSeconds / 3600,
+                (absSeconds % 3600) / 60,
+                absSeconds % 60);
+        return seconds < 0 ? "-" + positive : positive;
+
+    }
 
     public static void main(String[] args) {
 
@@ -21,8 +31,15 @@ public class FlightDuration {
 
         Duration duration = Duration.between(SydDateTime, losDateTime2);
 
-        System.out.println(duration);
+        System.out.println("It was : " + formatDuration(duration));
+
+
+        LocalDate start1 = LocalDate.of(1977, 05, 25);
+        LocalDate end1 = LocalDate.of(1977, 05, 25).plusYears(2);
+        StarWars.getDay();
+        System.out.println("Total was played: " + StarWars.TotalDays(start1, end1, StarWars.IgnoreList()) + " times.");
 
 
     }
+
 }

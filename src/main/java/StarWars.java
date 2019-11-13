@@ -22,7 +22,6 @@ public class StarWars {
 
     public static long TotalDays(LocalDate start1, LocalDate end1, List<DayOfWeek> ignore) {
         return DayCounter(start1, end1, ignore) + 1;
-
     }
 
     public static long DayCounter(LocalDate start1, LocalDate end1, List<DayOfWeek> ignore) {
@@ -36,18 +35,12 @@ public class StarWars {
             current = current.plusDays(1);
         }
 
-        return count;
-
-
+             return count;
     }
 
     static void getDay() {
         LocalDate localDate = LocalDate.of(1977, 5, 25);
         String dateInEnglish = localDate.format(DateTimeFormatter.ofPattern("EEEE, dd MMMM, yyyy", Locale.getDefault()));
         System.out.println("It was : " + dateInEnglish);
-
-
     }
-
-
 }
